@@ -1,0 +1,6 @@
+*.ods
+*.zip
+*.pdf
+.RData
+.Rproj*
+.Rhistory
