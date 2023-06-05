@@ -1,6 +1,4 @@
-# Data Source
-# REFERENCE: https://ejooco.github.io/MapStats.github.io/
-# https://r-graph-gallery.com/183-choropleth-map-with-leaflet.html
+
 # Visualize Gross County Product
 library(tidyverse)
 library(ggplot2)
@@ -16,7 +14,7 @@ rm(list=ls())
 # set the working directory to the current folder
 setwd('/home/ken/Desktop/knbs-gcp')
 # load in the gcp dataset
-gcp_df <- read.csv('gcp-current.csv', header=TRUE)
+gcp_df <- read.csv('datasets/gcp-current.csv', header=TRUE)
 gcp_df <- gcp_df[c(1:47),]
 names(gcp_df) <- c("COUNTY","YEAR_2013","YEAR_2014","YEAR_2015","YEAR_2016","YEAR_2017","YEAR_2018","YEAR_2019","YEAR_2020")
 View(gcp_df)
@@ -97,11 +95,3 @@ leaflet() %>%
     )
     ) %>% 
   addControl(html=plot_title, position="topright")
-
-
-# Viz
-gcp_df %>% 
-  pivot_longer(cols=!COUNTY, names_to="Year", values_to="GrossCountyProduct") %>% 
-  filter(COUNTY=="EMBU"|COUNTY=="KIAMBU") %>% 
-  ggplot(aes(Year, GrossCountyProduct,group=COUNTY,color=COUNTY)) + 
-  geom_line()
