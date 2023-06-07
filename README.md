@@ -16,4 +16,4 @@ Will also include a tutorial of how to do the same in R and leaflet and an inter
 []()
 
 ### Data Source
-[KNBS Website:](https://www.knbs.or.ke/download/gross-county-product-gcp-2021/){target="_blank"}
+[KNBS Website:](https://www.knbs.or.ke/download/gross-county-product-gcp-2021/){:target="_blank"}
