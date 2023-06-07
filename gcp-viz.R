@@ -19,6 +19,10 @@ gcp_df <- gcp_df[c(1:47),]
 names(gcp_df) <- c("COUNTY","YEAR_2013","YEAR_2014","YEAR_2015","YEAR_2016","YEAR_2017","YEAR_2018","YEAR_2019","YEAR_2020")
 View(gcp_df)
 
+# calculate average gcp per county for years from 2013 to 2020
+gcp_df <- gcp_df %>% 
+  mutate(gcp_mean=rowMeans(select(gcp_df, starts_with("YEAR_"))))
+
 # load in the shapefile
 shp <- readOGR(dsn="kenyan-counties", layer="County")
 plot(shp)
@@ -47,11 +51,19 @@ shp@data <- join(shp@data, gcp_df, by="COUNTY")
 shp_df <- fortify(shp)
 kenya_df <- join(shp_df, shp@data, by="id")
 
+# use ggplot to visualize contribution of gcp for various counties
 ggplot() +
-  geom_polygon(data=kenya_df, aes(long, lat, group=group, fill=log(YEAR_2018))) + 
-  geom_path(data=kenya_df, aes(long, lat, group=group), color="grey") +
-  theme_void()
+  geom_polygon(data=kenya_df, aes(long, lat, group=group, fill=log(gcp_mean)), colour="grey", linewidth=0.5) + 
+  geom_path(data=kenya_df, aes(long, lat, group=group), color="black", linewidth=0.5) +
+  scale_fill_distiller(name="Log GCP", palette="YlOrBr")+
+  labs(title="Gross County Product Map", subtitle="Average GCP for years 2013 - 2020", caption="Use Natural Log of the GCP to minimize effect of disparity") +
+  theme_void() +
+  theme(
+    plot.title = element_text(hjust=0.5, size=17, face="bold"), 
+    plot.caption = element_text(color="#edae49", size=13, hjust=0.5, face="italic"),
+    plot.subtitle = element_text(vjust=0.5, hjust=0.5, size=15, face="italic", family="Helvetica", color="brown"))
 
+# create a basic leaflet object to visualize county borders
 leaflet() %>% 
   addProviderTiles(providers$Esri.WorldGrayCanvas, group="Default Maptile", options=providerTileOptions(noWrap=TRUE)) %>%
   fitBounds(33.97, -4.471, 41.85688, 3.93726) %>%

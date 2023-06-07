@@ -9,5 +9,11 @@ The aim of this repo is to visualize this data on a map to allow ease of compari
 
 Will also include a tutorial of how to do the same in R and leaflet and an interactive shiny app
 
+### Preview
+![Gross County Product Viz](gcp-viz-app-screenshot.png)
+
+### Shiny App
+[]()
+
 ### Data Source
-[KNBS Website:](https://www.knbs.or.ke/download/gross-county-product-gcp-2021/) 
+<a  target="_blank" href="https://www.knbs.or.ke/download/gross-county-product-gcp-2021/">KNBS Website</a>
