@@ -1,6 +1,7 @@
 
 # Visualize Gross County Product
-library(tidyverse)
+#library(tidyverse)
+library(dplyr)
 library(ggplot2)
 library(rgdal)
 library(sf)
@@ -45,6 +46,7 @@ shp$COUNTY[muranga_id] <- "MURANGA"
 
 # inspect to ensure that all county names match in both shapefile and the knbs dataset
 setdiff(shp$COUNTY, gcp_df$COUNTY)
+
 shp@data$id <- rownames(shp@data)
 shp@data <- join(shp@data, gcp_df, by="COUNTY")
 

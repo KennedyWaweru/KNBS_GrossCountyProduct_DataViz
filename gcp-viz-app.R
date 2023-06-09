@@ -1,7 +1,7 @@
 library(shiny)
-library(sf)
+#library(sf)
 library(rgdal)
-library(tidyverse)
+#library(tidyverse)
 library(ggplot2)
 library(plyr)
 library(leaflet) 
@@ -85,7 +85,7 @@ ui <- fluidPage(
     }
       "))
     ),
-  titlePanel("Gross County Product (GCP) 2021"),
+  titlePanel("Gross County Product (GCP) Report"),
 
     sidebarLayout(
       sidebarPanel(
