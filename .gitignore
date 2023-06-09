@@ -6,3 +6,11 @@
 .Rhistory
 *.txt
 .Rproj.user
+
+knbs-gcp-shiny-app/datasets
+knbs-gcp-shiny-app/www
+
+.Rprofile
+README.html
+renv
+renv.lock

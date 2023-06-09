@@ -13,7 +13,10 @@ Will also include a tutorial of how to do the same in R and leaflet and an inter
 ![Gross County Product Viz](gcp-viz-app-screenshot.png)
 
 ### Shiny App
-[]()
+[DASCLAB Shiny Apps](https://dasclab.uonbi.ac.ke/shiny/knbs-gcp/)
+
+### Blog Post
+[DASCLAB Blog](https://dasclab.uonbi.ac.ke/analytics/blog/visualizing-map-data-with-ggplot-and-leaflet)
 
 ### Data Source
 <a  target="_blank" href="https://www.knbs.or.ke/download/gross-county-product-gcp-2021/">KNBS Website</a>

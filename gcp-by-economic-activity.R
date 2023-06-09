@@ -35,5 +35,6 @@ gcp_economic_sectors %>% filter(County=="KIAMBU"|County=="NYERI"|County=="MERU")
 gcp_economic_sectors %>% filter(County=="KIAMBU"|County=="NYERI"|County=="MERU") %>%
   ggplot() +
   geom_col(aes(x=County, y=Agriculture_Forestry_and_Mining,fill=Year), position=position_dodge2()) +
+  #geom_text(aes(label=Agriculture_Forestry_and_Mining), vjust=1.6, color="white", size=3.5) +
   labs(title="Agriculture Forestry and Mining", y="GCP, Kshs Million", x="Year") +
   theme_linedraw()
